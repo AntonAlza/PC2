@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculo de Impuesto a la Renta</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+		<div class="container">
+		<h1>Cálculo IR al Año</h1>
+		
+		<br>
+		<br>
+		
+		<a class="btn btn-primary btn-md"  href="/impuesto/lista">Listar Calculos</a>
+		<a class="btn btn-primary btn-md"  href="/impuesto/calcular">Nuevo Calculo</a>
+		
+		<br>
+		<br>
+		
+		<form th:action="@{/impuesto/nuevo}" th:object="${impuesto}" method="post">
+			
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtUIT">Valor de UIT :</label>
+				
+				<div class="col-md-10">
+					<input type="text" class="form-control" th:field="*{uit}" id="txtUIT" readonly> 
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtNombre">Nombre :</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{nombre}" class="form-control" id="txtNombre" readonly>
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtDNI">DNI :</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{DNI}" class="form-control" id="txtDNI" readonly>
+				</div>
+			</div>
+		
+			<div class="form-group">
+				<label class="control-label col-md-2" for="txtIngreso">Ingreso Mensual :</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{proybruta}" class="form-control" id="txtIngreso" readonly>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-md-2">Tipo de Trabajador :</label>
+				
+				<div class="col-md-8">
+					<label class="radio-inline"><input type="radio" th:field="*{TipTrabajador}" th:value="Dependiente" name="optradio" readonly>Dependiente</label>
+					<label class="radio-inline"><input type="radio" th:field="*{TipTrabajador}" th:value="Independiente" name="optradio" readonly>Independiente</label>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			<br>
+			<br>
+				<label class="control-label col-md-11" for="txtTotalBruto">Total Bruto</label>
+				
+				<div class="col-md-10">
+					<input type="text" th:field="*{total_ingreso}" class="form-control" id="txtTotalBruto" readonly>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<br>
+				<label class="control-label col-md-3" for="txtTotalImpuesto">Total Impuesto</label>
+				<div class="col-md-10">
+					<input type="text" th:field="*{retencAnual}" class="form-control" id="txtTotalImpuesto" readonly>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<br>
+				<label class="control-label col-md-3" for="txtTotalNeto">Total Neto</label>
+				<div class="col-md-10">
+					<input type="text" th:field="*{total_neto}" class="form-control" id="txtTotalNeto" readonly>
+				</div>
+			</div>
+			
+			<br>
+			<br>
+			
+			<div class="form-group">
+				<div class="col-md-12">
+					<input type="submit" value="Guardar" class="btn btn-success btn-block">
+				</div>
+				
+			</div>	
+			
+			</form>
+		</div>		
+			
+</body>
+</html>

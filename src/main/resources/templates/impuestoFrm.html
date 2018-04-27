@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Calculo de Impuesto a la Renta</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	
+		<h1>Ingrese los siguientes datos</h1>
+		<br>
+		<a class="btn btn-primary btn-md" href="/impuesto/lista" >Listado de Impuestos Calculados</a>
+		<br>
+		<br>
+		<br>
+		<form action="#" th:action="@{/impuesto/calcular}" th:object="${impuesto}" method="post">
+			
+			<div>
+					<label class="control-label col-md-2" >Valor de UIT :</label>
+					<div class="col-md-10">
+					<input class="form-control" type="text" th:field="*{uit}">
+					<br>
+					</div>
+					
+			</div>
+			
+			
+			<div>
+					<label class="control-label col-md-2" >Nombre :</label>
+					<div class="col-md-10">
+					<input class="form-control" type="text" th:field="*{nombre}">
+					<br>
+					</div>
+					
+			</div>
+			
+			
+			<div>
+					<label class="control-label col-md-2" >DNI :</label>
+					<div class="col-md-10">
+					<input class="form-control" type="text" th:field="*{DNI}">
+					<br>
+					</div>
+					
+			
+			</div>
+			
+			<div>
+					<label class="control-label col-md-2">Ingreso Anual :</label>
+					<div class="col-md-10">
+					<input class="form-control" type="text" th:field="*{proybruta}">
+					<br>
+					</div>
+					
+			</div>
+			
+			
+			<div>
+					<label class="control-label col-md-2">Tipo de Trabajador :</label>
+					
+					<label class="radio-inline"><input type="radio" th:field="*{TipTrabajador}" th:value="Dependiente" name="optradio">Dependiente</label>
+					<label class="radio-inline"><input type="radio" th:field="*{TipTrabajador}" th:value="Independiente" name="optradio">Independiente</label>
+			</div>
+			<br>
+			
+			<input type="submit" value="Calcular" class="btn btn-success btn-block">
+			
+		</form>
+		
+	</div>
+</body>
+</html>
